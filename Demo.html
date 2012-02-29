@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>FancySelect demo page</title>
+	
+	<!-- Include Mootools and FancySelect -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/mootools/1.4.1/mootools-yui-compressed.js"></script>
+	<script type="text/javascript" src="Source/FancySelect.js"></script>
+	<link type="text/css" href="Source/FancySelect.css" rel="stylesheet">
+	
+	<script type="text/javascript">
+	
+		window.addEvent('domready', function() {
+			
+			// Images + Text
+			$('fruits').fancySelect();
+			
+			// Images only
+			$('yummy').fancySelect({
+				showText: false,
+				showImages: true,
+				className: 'fancy-select fancy-select-big'
+			});
+			
+			// Text only
+			$('textonly').fancySelect({
+				showText: true,
+				showImages: false
+			});
+			
+			// Attach / Detach buttons (you don't need this)
+			$$('button.attach').addEvent('click', function() {
+				var select = this.getPrevious('select');
+				if (select.getStyle('display') == 'none') {
+					select.get('fancySelect').detach();
+					this.set('text', 'Attach');
+					this.getNext('button.toggle').set('disabled', true);
+				} else {
+					select.get('fancySelect').attach();
+					this.set('text', 'Detach');
+					this.getNext('button.toggle').set('disabled', false);
+				}
+			});
+			
+			// Toggle buttons (you don't need this)
+			$$('button.toggle').addEvent('click', function() {
+				var select = this.getPrevious('select');
+				if (select.getStyle('display') == 'none') select.fancySelectToggle();
+			});
+			
+		});
+		
+	</script>
+	
+	<style type="text/css">
+		
+		/* These rules does not style the FancySelect.
+		 * See Source/FancySelect.css for the dropdown styling. */
+		
+		body {
+			font-family: sans-serif;
+			font-size: 13px;
+		}
+		
+		div {
+			margin: 20px 10px;
+		}
+		
+		p {
+			color: #666666;
+			margin: 20px 10px;
+			clear: both;
+		}
+		
+		p b {
+			color: #333333;
+		}
+		
+		a {
+			font-weight: bold;
+			color: #3344FF;
+		}
+		
+		a:hover {
+			font-weight: bold;
+			color: #6677FF;
+		}
+		
+		pre {
+			font-size: 12px;
+			padding: 10px 15px;
+			background-color: #eeffef;
+			border: 1px solid #cceedf;
+			margin: 10px 40px;
+		}
+		
+		pre.javascript {
+			background-color: #eeefff;
+			border: 1px solid #ccdfee;
+		}
+		
+	</style>
+	
+</head>
+<body>
+	
+	<div><h1>FancySelect demo page</h1></div>
+	
+	<p>
+		A non-obtrusive <b>image dropdown menu</b> that extends and replaces
+		a standard HTML Select control.<br>
+		Requires Mootools Core 1.4.1 or later.<br>
+		Download and HowTo on <a href="http://www.mootools.net/forge/p/fancyselect">Mootools Forge</a>, sources and issues on 
+		<a href="https://github.com/lorenzos/FancySelect">GitHub</a>, full documentation 
+		<a href="https://github.com/lorenzos/FancySelect/wiki/Docs">here</a>.
+	</p>
+
+	<p>
+		
+		<b>Simplest example</b>, pick a fruit: &nbsp;
+
+		<select name="fruits" id="fruits">
+			<option value="1" data-image="Graphics/Fruits/Apple.png">Apple</option>
+			<option value="2" data-image="Graphics/Fruits/Banana.png">Banana</option>
+			<option value="3" data-image="Graphics/Fruits/Cherries.png">Cherries</option>
+			<option value="4" data-image="Graphics/Fruits/Lemon.png">Lemon</option>
+			<option value="5" data-image="Graphics/Fruits/Strawberry.png">Strawberry</option>
+			<option value="6" data-image="Graphics/Fruits/Watermelon.png">Watermelon</option>
+		</select>
+		
+		&nbsp; <button class="attach" type="button">Detach</button>
+		<button class="toggle" type="button">Toggle</button>
+		
+	</p>
+
+	<pre class="html">&lt;select name=&quot;fruits&quot; id=&quot;fruits&quot;&gt;
+	&lt;option value=&quot;1&quot; data-image=&quot;Graphics/Fruits/Apple.png&quot;&gt;Apple&lt;/option&gt;
+	&lt;option value=&quot;2&quot; data-image=&quot;Graphics/Fruits/Banana.png&quot;&gt;Banana&lt;/option&gt;
+	...
+&lt;/select&gt;</pre>
+	<pre class="javascript">$('fruits').fancySelect();</pre>
+
+	<p>
+		
+		<b>Only pictures</b>, yummy! &nbsp;
+
+		<select name="yummy" id="yummy">
+			<option value="a" data-image="Graphics/Yummy/Cake.png" data-alt="This is a cake">Cake</option>
+			<option value="b" data-image="Graphics/Yummy/Cheesecake.png" data-alt="Cheesecake!">Cheesecake</option>
+			<option value="c" data-image="Graphics/Yummy/Croissant.png" data-alt="Croissant">Croissant</option>
+			<option value="d" data-image="Graphics/Yummy/Donut.png" data-alt="Donut">Donut</option>
+		</select>
+		
+		&nbsp; <button class="attach" type="button">Detach</button>
+		<button class="toggle" type="button">Toggle</button>
+		
+	</p>
+
+	<pre class="html">&lt;select name=&quot;yummy&quot; id=&quot;yummy&quot;&gt;
+	&lt;option value=&quot;a&quot; data-image=&quot;Graphics/Fruit/Cake.png&quot; data-alt=&quot;This is a cake&quot;&gt;Cake&lt;/option&gt;
+	&lt;option value=&quot;b&quot; data-image=&quot;Graphics/Fruit/Cheesecake.png&quot; data-alt=&quot;Cheesecake!&quot;&gt;Cheesecake&lt;/option&gt;
+	...
+&lt;/select&gt;</pre>
+	<pre class="javascript">$('yummy').fancySelect({
+	showText: false,
+	showImages: true,
+	className: 'fancy-select fancy-select-big'
+});</pre>
+
+	<p>
+		
+		This is a <b>text-only</b> version: &nbsp;
+
+		<select name="textonly" id="textonly">
+			<option value="1">Lorem ipsum</option>
+			<option value="2">Dolor sit amet</option>
+			<option value="3">Consectetuer</option>
+			<option value="4">Adipiscing </option>
+		</select>
+		
+		&nbsp; <button class="attach" type="button">Detach</button>
+		<button class="toggle" type="button">Toggle</button>
+		
+	</p>
+
+	<pre class="html">&lt;select name=&quot;textonly&quot; id=&quot;textonly&quot;&gt;
+	&lt;option value=&quot;1&quot;&gt;Lorem ipsum&lt;/option&gt;
+	&lt;option value=&quot;2&quot;&gt;Dolor sit amet&lt;/option&gt;
+	...
+&lt;/select&gt;</pre>
+	<pre class="javascript">$('textonly').fancySelect({
+	showText: true,
+	showImages: false
+});</pre>
+
+	<div>
+		<p>
+			Icons from 
+			<a href="http://kevinandersson.deviantart.com/art/Fruits-Illustrated-64938333" target="_blank">Fruits Illustrated set</a>
+			and <a href="http://www.iconeden.com/icon/yummy-free-icons.html" target="_blank">Yummy free set</a>.
+		</p>
+	</div>
+	
+</body>
+</html>
