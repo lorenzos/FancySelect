@@ -1,8 +1,8 @@
 FancySelect
 ===========
 
-A non-obtrusive image dropdown menu that extends and replaces a standard 
-HTML Select control. Requires Mootools Core 1.4.1 or later.
+A non-obtrusive image dropdown menu that extends and replaces a standard HTML Select control.<br>
+Requires Mootools Core 1.4.1 or later.
 
 ![Screenshot](https://github.com/lorenzos/FancySelect/raw/master/Graphics/logo.png)
 
@@ -10,8 +10,8 @@ HTML Select control. Requires Mootools Core 1.4.1 or later.
 How to use
 ----------
 
-Just create a *<select>* element in HTML, and add a data-image 
-attribute to *<option>*, specifing image paths:
+Just create a `<select>` element in HTML, and add a data-image 
+attribute to `<option>`, specifing image paths:
 
 	#HTML
 	
@@ -46,7 +46,7 @@ Docs
 	
 	var myFancySelect = new FancySelect(element, options);
 
-- **element**: A *<select>* DOM element or ID.
+- **element**: A `<select>` DOM element or ID.
 - **options**: (*object*) Options for the class. They are all listed below.
 
 **Options:**
@@ -61,13 +61,13 @@ Docs
 
 - **show**: The dropdown menu appears.
 - **hide**: The dropdown menu disappears.
-- **attach**: FancySelect just replaced the *<select>* DOM element.
+- **attach**: FancySelect just replaced the `<select>` DOM element.
 - **detach**: The *<select>* DOM element is back.
 
 **Methods:**
 
-- **attach()**: Replace the *<select>* DOM element with FancySelect.
-- **detach()**: Bring the *<select>* DOM element back.
+- **attach()**: Replace the `<select>` DOM element with FancySelect.
+- **detach()**: Bring the `<select>` DOM element back.
 - **select(value)**: Select a value.
 - **show()**: Show the dropdown menu.
 - **hide()**: Hide the dropdown menu.
