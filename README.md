@@ -62,7 +62,7 @@ Docs
 - **show**: The dropdown menu appears.
 - **hide**: The dropdown menu disappears.
 - **attach**: FancySelect just replaced the `<select>` DOM element.
-- **detach**: The *<select>* DOM element is back.
+- **detach**: The `<select>` DOM element is back.
 
 **Methods:**
 
