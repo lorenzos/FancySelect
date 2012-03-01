@@ -24,19 +24,30 @@ var FancySelect = new Class({
 		showImages: true,
 		className: 'fancy-select',
 		offset: { x: 0, y: 0 },
+		autoScrollWindow: false,
 		animateFade: true,
 		animateSlide: true,
 		fx: { 'duration': 'short' }
 	},
 
 	initialize: function(element, options) {
+	
 		this.setOptions(options);
 		/*if (!Fx.Slide)*/ this.options.animateSlide = false; // Need review
 		this.element = document.id(element);
 		this.element.store('fancyselect_object', this);
 		this._create();
 		this.attach();
+		
+		// Auto-scroll when FancySelect is out of viewport
+		if (this.options.autoScrollWindow) this.addEvent('show', function() {
+			var windowScroll = window.getScroll();
+			var overflow = this.ul.getPosition().y + this.ul.getSize().y - window.getSize().y - windowScroll.y;
+			if (overflow > 0) window.scrollTo(windowScroll.x, windowScroll.y + overflow + 10);
+		});
+		
 		return this;
+		
 	},
 
 	attach: function() {
