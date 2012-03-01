@@ -10,7 +10,15 @@ Requires Mootools Core 1.4.1 or later.
 How to use
 ----------
 
-Just create a `<select>` element in HTML, and add a data-image 
+First of all, include in your page Mootools 1.4.1 or later, *FancySelect.js* source and *FancySelect.css* sheet.
+
+	#HTML
+	
+	<script type="text/javascript" src="Mootools.js"></script>
+	<script type="text/javascript" src="FancySelect.js"></script>
+	<link type="text/css" href="FancySelect.css" rel="stylesheet">
+
+Create a `<select>` element in HTML, and add a data-image 
 attribute to `<option>`, specifing image paths:
 
 	#HTML
