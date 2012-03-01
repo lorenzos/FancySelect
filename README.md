@@ -62,7 +62,8 @@ Docs
 - **showText**: If `TRUE` (default) keeps text in the dropdown menu.
 - **showImages**: If `TRUE` (default) show images in the dropdown menu.
 - **className**: A class name for CSS styling, default `'fancy-select'`.
-- **autoScrollWindow**: If `TRUE`, auto-scroll browser window when FancySelect is out of viewport.
+- **autoHide**: If `TRUE` auto-hide the dropdown menu when user clicks outside.
+- **autoScrollWindow**: If `TRUE` auto-scroll browser window when FancySelect is out of viewport.
 - **animateFade**: If `TRUE` (default) animate the dropdown menu appearance.
 - **fx**: An object for additional `Fx` options (default `{'duration': 'short'}`).
 

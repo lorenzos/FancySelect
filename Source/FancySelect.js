@@ -24,6 +24,7 @@ var FancySelect = new Class({
 		showImages: true,
 		className: 'fancy-select',
 		offset: { x: 0, y: 0 },
+		autoHide: false,
 		autoScrollWindow: false,
 		animateFade: true,
 		animateSlide: true,
@@ -45,6 +46,14 @@ var FancySelect = new Class({
 			var overflow = this.ul.getPosition().y + this.ul.getSize().y - window.getSize().y - windowScroll.y;
 			if (overflow > 0) window.scrollTo(windowScroll.x, windowScroll.y + overflow + 10);
 		});
+		
+		// Auto-hide the dropdown menu when user clicks outside
+		if (this.options.autoHide) document.body.addEvent('click', function(e) {
+			if (!this.shown) return;
+			var target = document.id(e.target);
+			var parents = target.getParents().include(target);
+			if (!parents.contains(this.ul) && !parents.contains(this.div)) this.hide();
+		}.bind(this));
 		
 		return this;
 		
