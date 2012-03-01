@@ -48,7 +48,7 @@ var FancySelect = new Class({
 		});
 		
 		// Auto-hide the dropdown menu when user clicks outside
-		if (this.options.autoHide) document.body.addEvent('click', function(e) {
+		if (this.options.autoHide) document.addEvent('click', function(e) {
 			if (!this.shown) return;
 			var target = document.id(e.target);
 			var parents = target.getParents().include(target);
