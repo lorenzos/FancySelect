@@ -119,6 +119,7 @@ var FancySelect = new Class({
 		this.element.getElements('option').each(function(option) {
 			var value = option.getProperty('value');
 			this.selectOptions[value] = {};
+			if (option.get('disabled')) this.selectOptions[value].disabled = true;
 			if (o.showText) this.selectOptions[value].text = option.get('text');
 			if (o.showImages) {
 				this.selectOptions[value].image = option.getProperty('data-image');
@@ -130,9 +131,14 @@ var FancySelect = new Class({
 		this.ul = new Element('ul').addClass(o.className);
 		Object.each(this.selectOptions, function(option, value) {
 			var li = new Element('li', { 'data-value': value });
-			if (o.showImages) li.adopt(new Element('img.image', { 'src': option.image, 'alt': option.alt }));
-			if (o.showText) li.adopt(new Element('span.text', { 'text': option.text }));
-			li.addEvent('click', function() { this.select(li.getProperty('data-value')); this.hide(); }.bind(this));
+			if (option.disabled) li.addClass('disabled');
+			if (o.showImages && option.image) li.adopt(new Element('img.image', { 'src': option.image, 'alt': option.alt }));
+			if (o.showText && option.text) li.adopt(new Element('span.text', { 'text': option.text }));
+			li.addEvent('click', function() { 
+				if (li.hasClass('disabled')) return;
+				this.select(li.getProperty('data-value')); 
+				this.hide(); 
+			}.bind(this));
 			this.ul.adopt(li);
 		}.bind(this));
 		

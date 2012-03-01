@@ -72,6 +72,15 @@ ul.fancy-select li.selected {
 	font-weight: bold;
 }
 
+/* This is for the disabled options */
+
+ul.fancy-select li.disabled {
+	background-color: #dddddd;
+	font-weight: bold;
+	color: #666666;
+	cursor: default;
+}
+
 /* The following rules set style for inner content of the <select> 
  * replacement and the dropdown list. Just an image and a text left-floated */
 
