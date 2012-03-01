@@ -137,7 +137,7 @@ var FancySelect = new Class({
 		}.bind(this));
 		
 		// Force <ul> custom positioning
-		this.ul.setStyle('position', 'absolute');
+		this.ul.setStyles({ position: 'absolute', top: 0, left: 0 });
 		if (o.animateFade) this.ul.set('tween', o.fx);
 		if (o.animateSlide) this.ul.set('slide', o.fx);
 		
