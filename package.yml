@@ -1,7 +1,7 @@
 name: FancySelect
 author: lorenzo.stanco
 category: Interface
-tags: [dropdown, select, image, drop, down]
+tags: [dropdown, select, image]
 demo: http://www.lorenzostanco.com/demos/FancySelect/Demo.html
 docs: http://wiki.github.com/lorenzos/FancySelect/docs
 current: 0.3
