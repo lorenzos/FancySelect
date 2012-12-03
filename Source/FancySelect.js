@@ -20,6 +20,7 @@ var FancySelect = new Class({
 	Implements: [Options, Events],
 
 	options: {
+		legacyEvents: false,
 		showText: true,
 		showImages: true,
 		className: 'fancy-select',
@@ -80,7 +81,14 @@ var FancySelect = new Class({
 	},
 	
 	select: function(value) {
-		this.element.set('value', value); // Update hidden <select>
+		// Update hidden <select>
+		if(this.element.get('value') != value) {
+			this.element.set('value', value);
+			if(this.options.legacyEvents) {
+				this.element.fireEvent('change');
+				this.element.getParents().fireEvent('change');
+			}
+		}
 		if (this.options.showText) this.div.getElement('span.text').set('text', this.selectOptions[value].text);
 		if (this.options.showImages) this.div.getElement('img.image').setProperties({
 			'src': this.selectOptions[value].image,
