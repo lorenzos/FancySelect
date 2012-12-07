@@ -46,6 +46,15 @@ div.fancy-select .arrow {
 ul.fancy-select {
 	margin: 0; /* Reccomended! */
 	padding: 0;
+	
+	/* Use the folliwing if you want to set a fixed height 
+	 * on the dropdown and let user "scroll" options... 
+	width: 150px;
+	height: 200px;
+	overflow: auto;
+	*overflow-x: hidden;
+	*overflow-y: auto; */
+	
 }
 
 ul.fancy-select li {

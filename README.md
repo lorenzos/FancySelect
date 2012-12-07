@@ -65,6 +65,7 @@ Docs
 - **autoHide**: If `TRUE` auto-hide the dropdown menu when user clicks outside.
 - **autoScrollWindow**: If `TRUE` auto-scroll browser window when FancySelect is out of viewport.
 - **animateFade**: If `TRUE` (default) animate the dropdown menu appearance.
+- **legacyEvents**: If `TRUE` fires "change" event for the original `<select>` element.
 - **fx**: An object for additional `Fx` options (default `{'duration': 'short'}`).
 
 **Events:**
