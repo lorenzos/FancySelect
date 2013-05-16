@@ -94,10 +94,11 @@ var FancySelect = new Class({
 			
 		}
 		
-		if (this.options.showText) this.div.getElement('span.text').set('text', this.selectOptions[value].text);
+		var vvalue = 'v' + value;
+		if (this.options.showText) this.div.getElement('span.text').set('text', this.selectOptions[vvalue].text);
 		if (this.options.showImages) this.div.getElement('img.image').setProperties({
-			'src': this.selectOptions[value].image,
-			'alt': this.selectOptions[value].alt
+			'src': this.selectOptions[vvalue].image,
+			'alt': this.selectOptions[vvalue].alt
 		});
 		if (this.ul) {
 			this.ul.getElements('li').each(function(li) {
@@ -151,19 +152,20 @@ var FancySelect = new Class({
 		this.selectOptions = {};
 		this.element.getElements('option').each(function(option) {
 			var value = option.getProperty('value');
-			this.selectOptions[value] = {};
-			if (option.get('disabled')) this.selectOptions[value].disabled = true;
-			if (o.showText) this.selectOptions[value].text = option.get('text');
+			var vvalue = 'v' + value;
+			this.selectOptions[vvalue] = {};
+			if (option.get('disabled')) this.selectOptions[vvalue].disabled = true;
+			if (o.showText) this.selectOptions[vvalue].text = option.get('text');
 			if (o.showImages) {
-				this.selectOptions[value].image = option.getProperty('data-image');
-				this.selectOptions[value].alt = option.getProperty('data-alt');
+				this.selectOptions[vvalue].image = option.getProperty('data-image');
+				this.selectOptions[vvalue].alt = option.getProperty('data-alt');
 			}
 		}.bind(this));
 		
 		// Create <li> elements
 		this.ul = new Element('ul').addClass(o.className);
 		Object.each(this.selectOptions, function(option, value) {
-			var li = new Element('li', { 'data-value': value });
+			var li = new Element('li', { 'data-value': value.substr(1) });
 			if (option.disabled) li.addClass('disabled');
 			if (o.showImages && option.image) li.adopt(new Element('img.image', { 'src': option.image, 'alt': option.alt }));
 			if (o.showText && option.text) li.adopt(new Element('span.text', { 'text': option.text }));

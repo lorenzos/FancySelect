@@ -4,6 +4,6 @@ category: Interface
 tags: [dropdown, select, image]
 demo: http://www.lorenzostanco.com/demos/FancySelect/Demo.html
 docs: http://wiki.github.com/lorenzos/FancySelect/docs
-current: 0.4
+current: 0.5
 sources:
   - "Source/FancySelect.js"
