@@ -67,6 +67,7 @@ Docs
 - **animateFade**: If `TRUE` (default) animate the dropdown menu appearance.
 - **legacyEvents**: If `TRUE` fires "change" event for the original `<select>` element.
 - **fx**: An object for additional `Fx` options (default `{'duration': 'short'}`).
+- **relativeTo**: An element id or element reference for dropdown positioning. (default `document.body`).
 
 **Events:**
 
