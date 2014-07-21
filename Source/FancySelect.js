@@ -29,7 +29,8 @@ var FancySelect = new Class({
 		autoScrollWindow: false,
 		animateFade: true,
 		animateSlide: true,
-		fx: { 'duration': 'short' }
+		fx: { 'duration': 'short' },
+		relativeTo: document.body
 	},
 
 	initialize: function(element, options) {
@@ -119,7 +120,7 @@ var FancySelect = new Class({
 
 	show: function() {
 		var offset = this.options.offset;
-		var position = this.div.getCoordinates();
+		var position = this.div.getCoordinates(this.options.relativeTo);
 		this.ul.setStyles({
 			'top': position.top + position.height + offset.y,
 			'left': position.left + offset.x });
